@@ -18,6 +18,10 @@ print(Y)
 Y = le.fit_transform(Y)
 print(Y)
 
-from sklearn.preprocessing import OneHotEncoder,
+from sklearn.preprocessing import OneHotEncoder
 from sklearn.compose import ColumnTransformer
-OHC = ColumnTransformer(transformers=['encoder', ])
+#the below Column transformer object one hot encodes all the columns provided inside list of tuples
+OHC = ColumnTransformer(transformers=[('encoder', OneHotEncoder(), [0])], remainder='passthrough')
+X = OHC.fit_transform(X)
+print(X)
+
